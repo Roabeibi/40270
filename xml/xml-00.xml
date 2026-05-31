@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE direccion SYSTEM "xml-00.dtd">
+<direccion>
+    <nombrecompleto>
+    <nombre>Jetzaly Josmery</nombre>
+    <apellido>T C</apellido>
+    </nombrecompleto>
+    <correo>12345@correo.com</correo>
+    <telefono>12345567</telefono>
+    <cumpleanios>
+        <dia>22</dia>
+        <mes>04</mes>
+        <anio>2006</anio>
+    </cumpleanios>
+</direccion>

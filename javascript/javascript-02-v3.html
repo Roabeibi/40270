@@ -74,12 +74,11 @@
         let operacion = "";
         let resultado = document.getElementById("resultado");
 
-        /* función para obtener parámetros */
+
         function obtenerParametro(valor) {
             resultado.value += valor;
         }
 
-        /* función para guardar operación */
         function obtenerOperacion(op) {
             prms.push(resultado.value);
             operacion = op;
@@ -93,38 +92,60 @@
             resultado.value = "";
         }
 
-        /* función igual con parámetros cargados */
-        function igual() {
-            prms.push(resultado.value);
 
-            let r = 0;
+function igual() {
+    prms.push(resultado.value);
 
-            if (operacion == "+") {
-                for (const key in prms) {
-                    if (Object.prototype.hasOwnProperty.call(prms, key)) {
-                        const prm = prms[key];
-                        r += parseInt(prm);
+    let r = 0;
+
+    /* for para recorrer parámetros */
+    for (const key in prms) {
+        if (Object.prototype.hasOwnProperty.call(prms, key)) {
+
+            const prm = prms[key];
+
+            /* switch después del for y del if */
+            switch (operacion) {
+
+                case "+":
+                    r += parseInt(prm);
+                    break;
+
+                case "-":
+                    if (key == 0) {
+                        r = parseInt(prm);
+                    } else {
+                        r -= parseInt(prm);
                     }
-                }
+                    break;
 
-                resultado.value = r;
+                case "*":
+                    if (r == 0) {
+                        r = 1;
+                    }
+                    r *= parseInt(prm);
+                    break;
+
+                case "/":
+                    if (key == 0) {
+                        r = parseInt(prm);
+                    } else {
+                        r /= parseInt(prm);
+                    }
+                    break;
+
+                default:
+                    resultado.value = "Error";
+                    return;
             }
-
-            if (operacion == "-") {
-                resultado.value = parseInt(prms[0]) - parseInt(prms[1]);
-            }
-
-            if (operacion == "*") {
-                resultado.value = parseInt(prms[0]) * parseInt(prms[1]);
-            }
-
-            if (operacion == "/") {
-                resultado.value = parseInt(prms[0]) / parseInt(prms[1]);
-            }
-
-            prms = [];
-            operacion = "";
         }
+    }
+
+    resultado.value = r;
+
+    prms = [];
+    operacion = "";
+}
     </script>
 
 </body>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla con Botón</title>
+</head>
+<body>
+
+    <button onclick="cargar()">
+        Cargar
+    </button>
+
+    <br><br>
+
+    <table border="1" id="tabla"></table>
+
+    <script>
+
+        let datos = ["nombre", "password", "John", 123, "Jane", 436];
+
+        function cargar() {
+
+            let tabla = document.getElementById("tabla");
+
+            let t = "";
+            let contador = 0;
+
+            for (const key in datos) {
+
+                const element = datos[key];
+
+                // Abrir fila cada 2 elementos
+                if (contador % 2 == 0) {
+                    t += "<tr>";
+                }
+
+                t += "<td>" + element + "</td>";
+
+                // Cerrar fila cada 2 elementos
+                if (contador % 2 == 1) {
+                    t += "</tr>";
+                }
+
+                contador++;
+            }
+
+            tabla.innerHTML = t;
+        }
+
+    </script>
+
+</body>
+</html>

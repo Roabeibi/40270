@@ -1,0 +1,14 @@
+
+
+        img {
+            box-shadow: 10px 10px 20px red;
+            width: 200px;
+            height: 200px;
+        }
+
+        figure {
+            text-align: center;
+            width: 300px;
+            display: inline-block;
+        }
+    

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Ventilador[
+<!ELEMENT Ventilador (Inicio, Acciones, Fin)>
+<!ELEMENT Inicio (#PCDATA)>
+<!ELEMENT Fin (#PCDATA)>
+<!ELEMENT Acciones (Encender | Apagar | Velocidad | Girar | Repetir | Pasos | Izquierda | Derecha)*>
+
+<!ELEMENT Encender EMPTY>
+<!ELEMENT Apagar EMPTY>
+<!ELEMENT Velocidad (#PCDATA)>
+<!ELEMENT Girar EMPTY>
+<!ELEMENT Pasos (#PCDATA)>
+<!ELEMENT Repetir (#PCDATA)>
+<!ELEMENT Izquierda EMPTY>
+<!ELEMENT Derecha EMPTY>
+]>

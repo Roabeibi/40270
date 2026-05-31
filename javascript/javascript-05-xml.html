@@ -1,0 +1,60 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Obtener datos XML</h1>
+
+    <button onclick="cargar()">
+        Cargar datos
+    </button>
+
+    <br><br>
+
+    <table border="1" id="tabla"></table>
+
+    <script>
+
+        function cargar() {
+
+            const xhttp = new XMLHttpRequest();
+
+            xhttp.onload = function () {
+
+                const xmlDoc = xhttp.responseXML;
+
+                let tabla = document.getElementById("tabla");
+
+                tabla.innerHTML = `
+                    <tr>
+                        <td>Nombre</td>
+                        <td>Password</td>
+                    </tr>
+
+                    <tr>
+                        <td>John</td>
+                        <td>123</td>
+                    </tr>
+
+                    <tr>
+                        <td>Jane</td>
+                        <td>436</td>
+                    </tr>
+                `;
+
+            };
+
+        }
+
+    </script>
+
+</body>
+
+</html>

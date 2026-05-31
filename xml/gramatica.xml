@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Ventilador SYSTEM "ventilador.dtd">
+
+<Ventilador>
+  <Inicio>Encendiendo sistema...</Inicio>
+
+  <Acciones>
+    <Encender />
+    <Velocidad>3</Velocidad>
+    <Girar />
+    <Derecha />
+    <Pasos>20</Pasos>
+    <Repetir>10</Repetir>
+    <Apagar />
+  </Acciones>
+
+  <Fin>Programa terminado</Fin>
+</Ventilador>

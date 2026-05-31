@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Simple</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .calculadora {
+            width: 250px;
+            margin: auto;
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        input {
+            width: 200px;
+            height: 30px;
+            margin: 5px;
+            text-align: right;
+        }
+
+        button {
+            width: 50px;
+            height: 40px;
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculadora">
+        <h3>Calculadora</h3>
+
+        <input type="text" id="resultado" readonly>
+
+        <br>
+
+        <button onclick="obtenerParametro('7')">7</button>
+        <button onclick="obtenerParametro('8')">8</button>
+        <button onclick="obtenerParametro('9')">9</button>
+        <button onclick="obtenerOperacion('+')">+</button>
+
+        <br>
+
+        <button onclick="obtenerParametro('4')">4</button>
+        <button onclick="obtenerParametro('5')">5</button>
+        <button onclick="obtenerParametro('6')">6</button>
+        <button onclick="obtenerOperacion('-')">-</button>
+
+        <br>
+
+        <button onclick="obtenerParametro('1')">1</button>
+        <button onclick="obtenerParametro('2')">2</button>
+        <button onclick="obtenerParametro('3')">3</button>
+        <button onclick="obtenerOperacion('*')">*</button>
+
+        <br>
+
+        <button onclick="obtenerParametro('0')">0</button>
+        <button onclick="borrar()">C</button>
+        <button onclick="igual()">=</button>
+        <button onclick="obtenerOperacion('/')">/</button>
+    </div>
+
+    <script>
+        let prms = [];
+        let operacion = "";
+        let resultado = document.getElementById("resultado");
+
+
+        function obtenerParametro(valor) {
+            resultado.value += valor;
+        }
+
+        function obtenerOperacion(op) {
+            prms.push(resultado.value);
+            operacion = op;
+            resultado.value = "";
+        }
+
+        /* función para borrar */
+        function borrar() {
+            prms = [];
+            operacion = "";
+            resultado.value = "";
+        }
+
+
+function igual() {
+    prms.push(resultado.value);
+
+    let r = 0;
+
+    /* for para recorrer parámetros */
+    for (const key in prms) {
+        if (Object.prototype.hasOwnProperty.call(prms, key)) {
+
+            const prm = prms[key];
+
+            /* switch después del for y del if */
+            switch (operacion) {
+
+                case "+":
+                    r += parseInt(prm);
+                    break;
+
+                case "-":
+                    if (key == 0) {
+                        r = parseInt(prm);
+                    } else {
+                        r -= parseInt(prm);
+                    }
+                    break;
+
+                case "*":
+                    if (r == 0) {
+                        r = 1;
+                    }
+                    r *= parseInt(prm);
+                    break;
+
+                case "/":
+                    if (key == 0) {
+                        r = parseInt(prm);
+                    } else {
+                        r /= parseInt(prm);
+                    }
+                    break;
+
+                default:
+                    resultado.value = "Error";
+                    return;
+            }
+        }
+    }
+
+    resultado.value = r;
+
+    prms = [];
+    operacion = "";
+}
+    </script>
+
+</body>
+</html>
